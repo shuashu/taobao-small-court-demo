@@ -921,11 +921,10 @@
             <p class="lead">看看双方的说法和记录，再选你支持的一方。</p>
           </div>
           <div class="stage-body">
-            <div class="case-inline"><span>蓝牙耳机 · 模拟案件019</span><span>剩余 <strong id="timer">14:38</strong></span></div>
+            <div class="case-inline"><span>蓝牙耳机 · 模拟案件019</span></div>
             <div class="review-quote">“<span class="disputed">耳机到手左耳就没声音，按客服说的重新连接也没用</span>。第一次买就遇到这种问题，挺失望的。”</div>
             <div class="claim-row"><div class="claim-label">商家怎么说</div><div class="claim-content">出库抽检正常，可能是配对没成功，不认可“到手就坏了”的说法。</div></div>
             <div class="claim-row"><div class="claim-label">用户怎么说</div><div class="claim-content">“当天拆开就发现左耳没声音，换了手机、重新配对，还是不行。”</div></div>
-            <div class="scope-note"><span class="scope-mark">!</span><span>这次看“到手左耳没声音”是否属实，不评判用户失望的感受。</span></div>
 
             <div class="evidence-toolbar" style="margin-top:20px"><h3>关键记录</h3></div>
             <div class="evidence-list">
@@ -1066,8 +1065,6 @@
       });
 
       function resetDemo() {
-        remaining = 14 * 60 + 38;
-        document.getElementById('timer').textContent = '14:38';
         state.choice = '';
         pendingChoice = '';
         modal.classList.remove('open');
@@ -1085,15 +1082,6 @@
       document.getElementById('resetTop').addEventListener('click', resetDemo);
       document.getElementById('replay').addEventListener('click', resetDemo);
       document.getElementById('nextCase').addEventListener('click', () => showToast('本次评理已完成'));
-
-      let remaining = 14 * 60 + 38;
-      setInterval(() => {
-        if (remaining <= 0) return;
-        remaining -= 1;
-        const minutes = String(Math.floor(remaining / 60)).padStart(2, '0');
-        const seconds = String(remaining % 60).padStart(2, '0');
-        document.getElementById('timer').textContent = `${minutes}:${seconds}`;
-      }, 1000);
 
       document.addEventListener('keydown', event => {
         if (event.key === 'Escape') modal.classList.remove('open');
